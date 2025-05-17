@@ -21,6 +21,11 @@ const server = new ApolloServer({
     req,
     res,
   }),
+
+  formatError: (err) => {
+    console.error("GraphQL Error:", err);
+    return err;
+  },
 });
 
 export const config = { api: { bodyParser: false, externalResolver: true } };
